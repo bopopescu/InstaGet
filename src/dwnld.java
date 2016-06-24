@@ -10,6 +10,10 @@ import java.util.Scanner;
 public class dwnld {
 
 	public static void main(String[] args) throws IOException {
+		File dir = new File("data");
+		dir.mkdir();
+		dir = new File("imgs");
+		dir.mkdir();
 		ArrayList<String> urls = new ArrayList<String>();
 		String temp = "";
 		char rbrack = (char)123;
