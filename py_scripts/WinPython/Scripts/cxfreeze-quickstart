@@ -1,0 +1,5 @@
+#!D:\Winpython\basedir35\build\winpython-64bit-3.5.x.4\python-3.5.1.amd64\python.exe
+from cx_Freeze.setupwriter import main
+
+main()
+

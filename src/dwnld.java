@@ -9,7 +9,7 @@ import java.util.Scanner;
 
 public class dwnld {
 
-	public static void main(String[] args) throws IOException {
+	public static void main(String[] args) throws IOException, InterruptedException {
 		File dir = new File("data");
 		dir.mkdir();
 		dir = new File("imgs");
@@ -24,7 +24,10 @@ public class dwnld {
 		PrintWriter weburl = new PrintWriter("data\\wob");
 		weburl.print("http://www.instagram.com/" + input);
 		weburl.close();
-		//ok so here i run the python package to get source code
+        String[] command = {"cmd.exe", "/C", "Start", "rungetsource.cmd"};
+		Process run = Runtime.getRuntime().exec(command);
+		run.waitFor();
+		run.destroyForcibly();
 		Scanner filereader = new Scanner(new File("data\\pagesource"));
 		while(filereader.hasNext()) {
 			temp = filereader.nextLine();
@@ -41,7 +44,10 @@ public class dwnld {
 			jpgs.println(urls.get(i));
 		}
 		jpgs.close();
-		//python execute get sources for all links
+		String[] cmd2 = {"cmd.exe", "/C", "Start", "rungetimgsrc.cmd"};
+		Process run2 = Runtime.getRuntime().exec(cmd2);
+		run2.waitFor();
+		run2.destroyForcibly();
 		BufferedImage img = null;
 		int cnt = 1;
 		File f = new File("data\\src_" + cnt);
