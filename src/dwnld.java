@@ -24,7 +24,7 @@ public class dwnld {
 		PrintWriter weburl = new PrintWriter("data\\wob");
 		weburl.print("http://www.instagram.com/" + input);
 		weburl.close();
-        String[] command = {"cmd.exe", "/C", "Start", "rungetsource.cmd"};
+        String[] command = {"cmd.exe", "/C", "Start /wait", "rungetsource.cmd"};
 		Process run = Runtime.getRuntime().exec(command);
 		run.waitFor();
 		run.destroyForcibly();
